@@ -19,60 +19,72 @@ console.log("Game started");
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
-    console.log(computerChoice); // see the computer's choice
+    //console.log(`Random number ${computerChoice} was generated`);
     switch(computerChoice) {
         case 0:
-            console.log("The computer's choice is Rock");
+            computerChoice = "Rock";
+            console.log(`The computer's choice is ${computerChoice}.`);
             break;
         case 1:
-            console.log("The computer's choice is Paper");
+            computerChoice = "Paper";
+            console.log(`The computer's choice is ${computerChoice}.`);
             break;
         case 2:
-            console.log("The computer's choice is Scissors");
+            computerChoice = "Scissors";
+            console.log(`The computer's choice is ${computerChoice}.`);
             break;
     }
     return computerChoice;
 }
 
 function playRound(playerSelection, computerSelection) {
-    console.log(`The player's choice is ${playerSelection}`);
-    //playerSelection = playerSelection.toUpperCase();
+    //console.log(`The player's choice is ${playerSelection.toLowerCase()}`);
 
-    switch(playerSelection) {
-        case "ROCK":
-            if (computerSelection === 0) {
-                console.log("DRAW");
-            } else if (computerSelection === 1) {
-                console.log("LOSS")
+    switch(playerSelection.toLowerCase()) {
+        case "rock":
+            if (computerSelection === "Rock") {
+                roundOutcome = "Draw";
+                console.log(`It's a draw! You have both selected ${computerSelection}.`);
+            } else if (computerSelection === "Paper") {
+                roundOutcome = "Loss";
+                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`);
             } else {
-                console.log("WIN");
+                roundOutcome = "Win";
+                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`);
             }
             break;
 
-        case "PAPER":
-            if (computerSelection === 0) {
-                console.log("WIN");
-            } else if (computerSelection === 1) {
-                console.log("DRAW")
+        case "paper":
+            if (computerSelection === "Rock") {
+                roundOutcome = "Win";
+                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`);
+            } else if (computerSelection === "Paper") {
+                roundOutcome = "Draw";
+                console.log(`It's a draw! You have both selected ${computerSelection}.`);
             } else {
-                console.log("LOSS");
+                roundOutcome = "Loss";
+                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`);
             }
             break;
 
-        case "SCISSORS":
-            if (computerSelection === 0) {
-                console.log("LOSS");
-            } else if (computerSelection === 1) {
-                console.log("WIN")
+        case "scissors":
+            if (computerSelection === "Rock") {
+                roundOutcome = "Loss"
+                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`);
+            } else if (computerSelection === "Paper") {
+                roundOutcome = "Win";
+                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`);
             } else {
-                console.log("DRAW");
+                roundOutcome = "Draw";
+                console.log(`It's a draw! You have both selected ${computerSelection}.`);
             }
             break;
     }
+    return roundOutcome;
 }
 
-const playerSelection = "ROCK";
+const playerSelection = "Scissors";
 const computerSelection = getComputerChoice();
-//console.log(`The computer has selected ${computerSelection}`);
+let roundOutcome = "";
 
 playRound(playerSelection, computerSelection);
