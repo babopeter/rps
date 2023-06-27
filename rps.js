@@ -38,6 +38,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+
     switch(playerSelection) {
         case "Rock":
             if (computerSelection === "Rock") {
@@ -89,15 +90,6 @@ function playRound(playerSelection, computerSelection) {
     return roundOutcome;
 }
 
-function validateInput(playerSelection) {
-    let validSelection = false;
-    if (playerSelection === "Rock" || playerSelection === "Paper" || playerSelection === "Scissors") {
-        validSelection = true;
-    } else {
-        validSelection = false;
-    }
-}
-
 function printScore() {
     console.log(`The final score is ${playerScore} : ${computerScore}`);
 }
@@ -116,25 +108,24 @@ function game() {
     for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
         alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
         let playerSelection = prompt(`Make your choice and type it here:`);
+        console.log(`\nTurn ${roundNumber} outcome:`);
         let computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
-        if (roundOutcome === "Win") {
-            playerScore++;
-        } else if (roundOutcome === "Loss") {
-            computerScore++;
-        } else {
-            drawCounter++;
-        }
+            if (roundOutcome === "Win") {
+                playerScore++;
+            } else if (roundOutcome === "Loss") {
+                computerScore++;
+            } else {
+                drawCounter++;
+            } 
     }
     printScore();
     checkWinner();
 }
 
-
-
-let input = "";
 let roundOutcome = "";
 let playerScore = 0;
 let computerScore = 0;
 let drawCounter = 0;
+let validSelection = false;
 game();
