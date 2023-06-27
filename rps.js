@@ -90,16 +90,42 @@ function playRound(playerSelection, computerSelection) {
     return roundOutcome;
 }
 
+function printScore() {
+    console.log(`The score is ${playerScore} : ${computerScore}`);
+}
+
+function checkWinner() {
+    if (playerScore > computerScore) {
+        console.log("Congratulations, you won the game!");
+    } else if (playerScore < computerScore) {
+        console.log("You lost the game, but feel free to try again!");
+    } else {
+        console.log("The game ends in a draw!");
+    }
+}
+
 function game() {
     for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
         alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
         let playerSelection = prompt(`Make your choice and type it here:`);
         let computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
+        if (roundOutcome === "Win") {
+            playerScore++;
+        } else if (roundOutcome === "Loss") {
+            computerScore++;
+        } else {
+            drawCounter++;
+        }
     }
+    printScore();
+    checkWinner();
 }
 
 
 
 let roundOutcome = "";
+let playerScore = 0;
+let computerScore = 0;
+let drawCounter = 0;
 game();
