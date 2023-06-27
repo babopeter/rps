@@ -91,11 +91,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    console.log(`Welcome to Rock, Paper, Scissors!`);
+    alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
+    let playerSelection = prompt(`Make your choice and type it here:`);
+    let computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
 }
 
-let playerSelection = prompt(`Make your choice and type it here:`);
-const computerSelection = getComputerChoice();
-let roundOutcome = "";
 
-playRound(playerSelection, computerSelection);
+
+let roundOutcome = "";
+let roundNumber = 1;
+game();
