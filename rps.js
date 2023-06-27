@@ -1,4 +1,3 @@
-console.log("Game started");
 // getComputerChoice
 // The computer selects r, p, or s randomly
     // Rock - 0
@@ -79,11 +78,23 @@ function playRound(playerSelection, computerSelection) {
                 console.log(`It's a draw! You have both selected ${computerSelection}.`);
             }
             break;
+        
+        case "":
+            console.log(`Please enter Rock, Paper or Scissors.`);
+            break;
+
+        default:
+            console.log(`${playerSelection} is not a valid input. Please select Rock, Paper, or Scissors!`);
+            break;  
     }
     return roundOutcome;
 }
 
-let playerSelection = prompt();
+function game() {
+    console.log(`Welcome to Rock, Paper, Scissors!`);
+}
+
+let playerSelection = prompt(`Make your choice and type it here:`);
 const computerSelection = getComputerChoice();
 let roundOutcome = "";
 
