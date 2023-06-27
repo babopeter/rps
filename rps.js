@@ -38,7 +38,6 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
-    
     switch(playerSelection) {
         case "Rock":
             if (computerSelection === "Rock") {
@@ -90,8 +89,17 @@ function playRound(playerSelection, computerSelection) {
     return roundOutcome;
 }
 
+function validateInput(playerSelection) {
+    let validSelection = false;
+    if (playerSelection === "Rock" || playerSelection === "Paper" || playerSelection === "Scissors") {
+        validSelection = true;
+    } else {
+        validSelection = false;
+    }
+}
+
 function printScore() {
-    console.log(`The score is ${playerScore} : ${computerScore}`);
+    console.log(`The final score is ${playerScore} : ${computerScore}`);
 }
 
 function checkWinner() {
@@ -124,6 +132,7 @@ function game() {
 
 
 
+let input = "";
 let roundOutcome = "";
 let playerScore = 0;
 let computerScore = 0;
