@@ -91,14 +91,15 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
-    let playerSelection = prompt(`Make your choice and type it here:`);
-    let computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
+    for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
+        alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
+        let playerSelection = prompt(`Make your choice and type it here:`);
+        let computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
+    }
 }
 
 
 
 let roundOutcome = "";
-let roundNumber = 1;
 game();
