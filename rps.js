@@ -1,25 +1,7 @@
-// getComputerChoice
-// The computer selects r, p, or s randomly
-    // Rock - 0
-    // Paper - 1
-    // Scissors - 2
-
-// playRound()
-// Prompt user to choose either rock, paper or scissors
-    // The choice should be case-insensitive
-    // rock, Rock, rOCK should work
-
-// Evaluate the user's choice against the computer's
-// Output a different message based on the end result
-// Include the computer's choice
-    // Draw
-    // You won
-    // You lost
-
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     //console.log(`Random number ${computerChoice} was generated`);
-    switch(computerChoice) {
+    switch (computerChoice) {
         case 0:
             computerChoice = "Rock";
             console.log(`The computer's choice is ${computerChoice}.`);
@@ -39,7 +21,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
 
-    switch(playerSelection) {
+    switch (playerSelection) {
         case "Rock":
             if (computerSelection === "Rock") {
                 roundOutcome = "Draw";
@@ -78,14 +60,14 @@ function playRound(playerSelection, computerSelection) {
                 console.log(`It's a draw! You have both selected ${computerSelection}.`);
             }
             break;
-        
+
         case "":
             console.log(`Please enter Rock, Paper or Scissors.`);
             break;
 
         default:
             console.log(`${playerSelection} is not a valid input. Please select Rock, Paper, or Scissors!`);
-            break;  
+            break;
     }
     return roundOutcome;
 }
@@ -105,19 +87,33 @@ function checkWinner() {
 }
 
 function game() {
-    for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
+    /* for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
         alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
         let playerSelection = prompt(`Make your choice and type it here:`);
         console.log(`\nTurn ${roundNumber} outcome:`);
         let computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
-            if (roundOutcome === "Win") {
-                playerScore++;
-            } else if (roundOutcome === "Loss") {
-                computerScore++;
-            } else {
-                drawCounter++;
-            } 
+        if (roundOutcome === "Win") {
+            playerScore++;
+        } else if (roundOutcome === "Loss") {
+            computerScore++;
+        } else {
+            drawCounter++;
+        }
+    } */
+
+    let roundNumber = 1;
+    alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
+    let playerSelection = prompt(`Make your choice and type it here:`);
+    console.log(`\nTurn ${roundNumber} outcome:`);
+    let computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+    if (roundOutcome === "Win") {
+        playerScore++;
+    } else if (roundOutcome === "Loss") {
+        computerScore++;
+    } else {
+        drawCounter++;
     }
     printScore();
     checkWinner();
