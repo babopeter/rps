@@ -103,7 +103,7 @@ function game() {
     } */
 
     let roundNumber = 1;
-    alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
+    //alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
     let playerSelection = prompt(`Make your choice and type it here:`);
     console.log(`\nTurn ${roundNumber} outcome:`);
     let computerSelection = getComputerChoice();
@@ -124,4 +124,9 @@ let playerScore = 0;
 let computerScore = 0;
 let drawCounter = 0;
 let validSelection = false;
-game();
+//game();
+
+const btn = document.querySelector('.btn');
+btn.addEventListener('click', function(e) {
+    console.log(e);
+})
