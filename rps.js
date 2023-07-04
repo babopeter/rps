@@ -126,7 +126,9 @@ let drawCounter = 0;
 let validSelection = false;
 //game();
 
-const btn = document.querySelector('.btn');
-btn.addEventListener('click', function(e) {
-    console.log(e);
-})
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        alert(button.id);
+    });
+});
