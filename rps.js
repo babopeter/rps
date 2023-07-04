@@ -87,6 +87,16 @@ function checkWinner() {
     }
 }
 
+function countScore () {
+    if (roundOutcome === "Win") {
+        playerScore++;
+    } else if (roundOutcome === "Loss") {
+        computerScore++;
+    } else {
+        drawCounter++;
+    }
+}
+
 function game() {
     /* for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
         alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
@@ -115,13 +125,7 @@ function game() {
             let playerSelection = button.id;
             let computerSelection = getComputerChoice();
             playRound(playerSelection, computerSelection);
-            if (roundOutcome === "Win") {
-                playerScore++;
-            } else if (roundOutcome === "Loss") {
-                computerScore++;
-            } else {
-                drawCounter++;
-            }
+            countScore();
             printScore();
             checkWinner();
         });
