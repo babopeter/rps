@@ -19,6 +19,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
 
     switch (playerSelection) {
@@ -104,19 +105,30 @@ function game() {
 
     let roundNumber = 1;
     //alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
-    let playerSelection = prompt(`Make your choice and type it here:`);
-    console.log(`\nTurn ${roundNumber} outcome:`);
-    let computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
-    if (roundOutcome === "Win") {
-        playerScore++;
-    } else if (roundOutcome === "Loss") {
-        computerScore++;
-    } else {
-        drawCounter++;
-    }
-    printScore();
-    checkWinner();
+    //let playerSelection = prompt(`Make your choice and type it here:`);
+
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            console.log(button.id);
+            let playerSelection = button.id;
+            let computerSelection = getComputerChoice();
+            playRound(playerSelection, computerSelection);
+            if (roundOutcome === "Win") {
+                playerScore++;
+            } else if (roundOutcome === "Loss") {
+                computerScore++;
+            } else {
+                drawCounter++;
+            }
+            printScore();
+            checkWinner();
+        });
+    });
+
+    //console.log(`\nTurn ${roundNumber} outcome:`);
+
 }
 
 let roundOutcome = "";
@@ -124,11 +136,5 @@ let playerScore = 0;
 let computerScore = 0;
 let drawCounter = 0;
 let validSelection = false;
-//game();
+game();
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        alert(button.id);
-    });
-});
