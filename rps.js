@@ -1,31 +1,24 @@
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
-    //console.log(`Random number ${computerChoice} was generated`);
-    
-    // Find a way to remove the appended computer's choice when a new round starts
-    //const choiceContainer = document.querySelector('#computer-choice');
-    
-    //const aiChoice = document.createElement('p');
-    //aiChoice.classList.add('aiChoice');
+
     switch (computerChoice) {
         case 0:
             computerChoice = "Rock";
-            //aiChoice.textContent = `${computerChoice}`;
-            //choiceContainer.append(aiChoice);
+            //display the computer's choice
             document.getElementById("displaychoice").innerHTML = computerChoice;
             console.log(`The computer's choice is ${computerChoice}.`);
             break;
         case 1:
             computerChoice = "Paper";
             //aiChoice.textContent = `${computerChoice}`;
-            //choiceContainer.append(aiChoice);
+             //display the computer's choice
             document.getElementById("displaychoice").innerHTML = computerChoice;
             console.log(`The computer's choice is ${computerChoice}.`);
             break;
         case 2:
             computerChoice = "Scissors";
             //aiChoice.textContent = `${computerChoice}`;
-            //choiceContainer.append(aiChoice);
+             //display the computer's choice
             document.getElementById("displaychoice").innerHTML = computerChoice;
             console.log(`The computer's choice is ${computerChoice}.`);
             break;
@@ -105,8 +98,10 @@ function checkWinner() {
 function countScore () {
     if (roundOutcome === "Win") {
         playerScore++;
+        document.getElementById("displayscorep").innerHTML = playerScore;
     } else if (roundOutcome === "Loss") {
         computerScore++;
+        document.getElementById("displayscorec").innerHTML = computerScore;
     } else {
         drawCounter++;
     }
