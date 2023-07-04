@@ -1,17 +1,26 @@
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
     //console.log(`Random number ${computerChoice} was generated`);
+    const choiceContainer = document.querySelector('#computer-choice');
+    const aiChoice = document.createElement('p');
+    aiChoice.classList.add('aiChoice');
     switch (computerChoice) {
         case 0:
             computerChoice = "Rock";
+            aiChoice.textContent = `${computerChoice}`;
+            choiceContainer.append(aiChoice);
             console.log(`The computer's choice is ${computerChoice}.`);
             break;
         case 1:
             computerChoice = "Paper";
+            aiChoice.textContent = `${computerChoice}`;
+            choiceContainer.append(aiChoice);
             console.log(`The computer's choice is ${computerChoice}.`);
             break;
         case 2:
             computerChoice = "Scissors";
+            aiChoice.textContent = `${computerChoice}`;
+            choiceContainer.append(aiChoice);
             console.log(`The computer's choice is ${computerChoice}.`);
             break;
     }
@@ -113,7 +122,14 @@ function game() {
         }
     } */
 
-    let roundNumber = 1;
+    //Add round count to html
+    /*const rounds = document.querySelector('#rounds');
+    const roundCount = document.createElement('div');
+    rounds.classList.add('roundCount');
+    rounds.textContent = `Round number: ${roundNumber}`;
+    rounds.appendChild(roundCount);*/
+
+    // --- DELETE THIS
     //alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
     //let playerSelection = prompt(`Make your choice and type it here:`);
 
@@ -134,7 +150,7 @@ function game() {
     //console.log(`\nTurn ${roundNumber} outcome:`);
 
 }
-
+let roundNumber = 1;
 let roundOutcome = "";
 let playerScore = 0;
 let computerScore = 0;
