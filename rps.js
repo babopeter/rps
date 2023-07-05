@@ -74,13 +74,14 @@ function playRound(playerSelection, computerSelection) {
     return roundOutcome;
 }
 
-// Print the final score and win/loss message
-function printScore() {
+// print the final score and win/loss message
+function printStatus() {
     gameStatus = "Game over! Click a button to start a new game!";
     document.getElementById("gamestatus").innerHTML = gameStatus;
 
 }
 
+// check if the player or computer reached the designated score
 function checkWinner() {
     if (playerScore >= 2 || computerScore >= 2) {gameOver = true};
 }
@@ -132,7 +133,7 @@ function game() {
             checkWinner();
             if(gameOver){
                 console.log('The game is over');
-                printScore();
+                printStatus();
                 endGame();
             };
 
