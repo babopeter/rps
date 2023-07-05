@@ -101,6 +101,10 @@ function printComputerChoice() {
     document.getElementById("displaychoice").innerHTML = computerChoice;
 }
 
+function printRoundNumber() {
+    document.getElementById("displayrounds").innerHTML = roundNumber;
+}
+
 // reset variables to start a new game
 function endGame() {
     roundNumber = 1;
@@ -124,7 +128,7 @@ function game() {
             document.getElementById("displayscorep").innerHTML = playerScore;
             document.getElementById("displayscorec").innerHTML = computerScore;
             document.getElementById("gamestatus").innerHTML = gameStatus;
-
+            printRoundNumber();
             console.log(button.id); // log player's choice
             let playerSelection = button.id;
             let computerSelection = getComputerChoice();
@@ -133,6 +137,7 @@ function game() {
             countScore();
             printScore();
             checkWinner();
+            roundNumber++;
             if(gameOver){
                 console.log('The game is over');
                 printStatus();
