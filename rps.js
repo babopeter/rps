@@ -34,39 +34,39 @@ function playRound(playerSelection, computerSelection) {
         case "Rock":
             if (computerSelection === "Rock") {
                 roundOutcome = "Draw";
-                console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
+                //console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             } else if (computerSelection === "Paper") {
                 roundOutcome = "Loss";
-                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
+                //console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
             } else {
                 roundOutcome = "Win";
-                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
+                //console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
             }
             break;
 
         case "Paper":
             if (computerSelection === "Rock") {
                 roundOutcome = "Win";
-                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
+                //console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
             } else if (computerSelection === "Paper") {
                 roundOutcome = "Draw";
-                console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
+                //console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             } else {
                 roundOutcome = "Loss";
-                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
+                //console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
             }
             break;
 
         case "Scissors":
             if (computerSelection === "Rock") {
                 roundOutcome = "Loss"
-                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
+                //console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
             } else if (computerSelection === "Paper") {
                 roundOutcome = "Win";
-                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
+                //console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
             } else {
                 roundOutcome = "Draw";
-                console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
+                //console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             }
             break;
     }
@@ -82,15 +82,7 @@ function printScore() {
 }
 
 function checkWinner() {
-    if (playerScore >= 2) {
-        console.log("Congratulations, you won the game!"); //print
-        gameOver = true;
-    } else if (computerScore >= 2) {
-        console.log("You lost the game, but feel free to try again!"); //print
-        gameOver = true;
-    } else {
-        console.log('Continue');
-    }
+    if (playerScore >= 2 || computerScore >= 2) {gameOver = true};
 }
 
 function countScore() {
@@ -107,6 +99,7 @@ function countScore() {
     }
 }
 
+// reset variables to start a new game
 function endGame() {
     roundNumber = 1;
     roundOutcome = "";
@@ -118,10 +111,9 @@ function endGame() {
     gameStatus = "";
     playerScore = "";
     computerScore = "";
+    roundOutcome = "";
 }
 
-// find a way to end the forEach loop
-// use the gameOver variable to check if the game is over
 function game() {
 
     buttons.forEach((button) => {
