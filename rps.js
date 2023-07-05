@@ -1,3 +1,4 @@
+// Generates the computer's choice based on a random number
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3);
 
@@ -6,26 +7,25 @@ function getComputerChoice() {
             computerChoice = "Rock";
             //display the computer's choice
             document.getElementById("displaychoice").innerHTML = computerChoice;
-            console.log(`The computer's choice is ${computerChoice}.`);
+            console.log(`The computer's choice is ${computerChoice}.`); //print
             break;
         case 1:
             computerChoice = "Paper";
-            //aiChoice.textContent = `${computerChoice}`;
-             //display the computer's choice
+            //display the computer's choice
             document.getElementById("displaychoice").innerHTML = computerChoice;
-            console.log(`The computer's choice is ${computerChoice}.`);
+            console.log(`The computer's choice is ${computerChoice}.`); //print
             break;
         case 2:
             computerChoice = "Scissors";
-            //aiChoice.textContent = `${computerChoice}`;
-             //display the computer's choice
+            //display the computer's choice
             document.getElementById("displaychoice").innerHTML = computerChoice;
-            console.log(`The computer's choice is ${computerChoice}.`);
+            console.log(`The computer's choice is ${computerChoice}.`); //print
             break;
     }
     return computerChoice;
 }
 
+// Evaluates the player's choice against the computer's choice
 function playRound(playerSelection, computerSelection) {
 
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
@@ -34,68 +34,73 @@ function playRound(playerSelection, computerSelection) {
         case "Rock":
             if (computerSelection === "Rock") {
                 roundOutcome = "Draw";
-                console.log(`It's a draw! You have both selected ${computerSelection}.`);
+                console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             } else if (computerSelection === "Paper") {
                 roundOutcome = "Loss";
-                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`);
+                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
             } else {
                 roundOutcome = "Win";
-                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`);
+                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
             }
             break;
 
         case "Paper":
             if (computerSelection === "Rock") {
                 roundOutcome = "Win";
-                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`);
+                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
             } else if (computerSelection === "Paper") {
                 roundOutcome = "Draw";
-                console.log(`It's a draw! You have both selected ${computerSelection}.`);
+                console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             } else {
                 roundOutcome = "Loss";
-                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`);
+                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
             }
             break;
 
         case "Scissors":
             if (computerSelection === "Rock") {
                 roundOutcome = "Loss"
-                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`);
+                console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
             } else if (computerSelection === "Paper") {
                 roundOutcome = "Win";
-                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`);
+                console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
             } else {
                 roundOutcome = "Draw";
-                console.log(`It's a draw! You have both selected ${computerSelection}.`);
+                console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             }
             break;
 
         case "":
-            console.log(`Please enter Rock, Paper or Scissors.`);
+            console.log(`Please enter Rock, Paper or Scissors.`); //case can be removed
             break;
 
         default:
-            console.log(`${playerSelection} is not a valid input. Please select Rock, Paper, or Scissors!`);
+            console.log(`${playerSelection} is not a valid input. Please select Rock, Paper, or Scissors!`); // case can be removed
             break;
     }
     return roundOutcome;
 }
 
+// Print the final score and win/loss message
 function printScore() {
-    console.log(`The final score is ${playerScore} : ${computerScore}`);
+    gameStatus = "Game over! Click a button to start a new game!";
+    document.getElementById("gamestatus").innerHTML = gameStatus;
+
 }
 
 function checkWinner() {
-    if (playerScore > computerScore) {
-        console.log("Congratulations, you won the game!");
-    } else if (playerScore < computerScore) {
-        console.log("You lost the game, but feel free to try again!");
+    if (playerScore >= 2) {
+        console.log("Congratulations, you won the game!"); //print
+        gameOver = true;
+    } else if (computerScore >= 2) {
+        console.log("You lost the game, but feel free to try again!"); //print
+        gameOver = true;
     } else {
-        console.log("The game ends in a draw!");
+        console.log('Continue');
     }
 }
 
-function countScore () {
+function countScore() {
     if (roundOutcome === "Win") {
         playerScore++;
         document.getElementById("displayscorep").innerHTML = playerScore;
@@ -107,55 +112,51 @@ function countScore () {
     }
 }
 
+function endGame() {
+    roundNumber = 1;
+    roundOutcome = "";
+    playerScore = 0;
+    computerScore = 0;
+    drawCounter = 0;
+    validSelection = false;
+    gameOver = false;
+    gameStatus = "";
+    playerScore = "";
+    computerScore = "";
+}
+
+// find a way to end the forEach loop
+// use the gameOver variable to check if the game is over
 function game() {
-    /* for (let roundNumber = 1; roundNumber < 6; roundNumber++) {
-        alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
-        let playerSelection = prompt(`Make your choice and type it here:`);
-        console.log(`\nTurn ${roundNumber} outcome:`);
-        let computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection);
-        if (roundOutcome === "Win") {
-            playerScore++;
-        } else if (roundOutcome === "Loss") {
-            computerScore++;
-        } else {
-            drawCounter++;
-        }
-    } */
 
-    //Add round count to html
-    /*const rounds = document.querySelector('#rounds');
-    const roundCount = document.createElement('div');
-    rounds.classList.add('roundCount');
-    rounds.textContent = `Round number: ${roundNumber}`;
-    rounds.appendChild(roundCount);*/
-
-    // --- DELETE THIS
-    //alert(`Welcome to round ${roundNumber} of Rock, Paper, Scissors!`);
-    //let playerSelection = prompt(`Make your choice and type it here:`);
-
-
-    const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
-            console.log(button.id);
+
+            console.log(button.id); // log player's choice
             let playerSelection = button.id;
             let computerSelection = getComputerChoice();
+
             playRound(playerSelection, computerSelection);
             countScore();
-            printScore();
             checkWinner();
+            if(gameOver){
+                console.log('The game is over');
+                printScore();
+                endGame();
+            };
+
         });
     });
-
-    //console.log(`\nTurn ${roundNumber} outcome:`);
-
 }
+
 let roundNumber = 1;
 let roundOutcome = "";
 let playerScore = 0;
 let computerScore = 0;
 let drawCounter = 0;
 let validSelection = false;
-game();
+let gameOver = false;
+const buttons = document.querySelectorAll('button');
+let gameStatus = "";
 
+game();
