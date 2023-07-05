@@ -69,15 +69,8 @@ function playRound(playerSelection, computerSelection) {
                 console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             }
             break;
-
-        case "":
-            console.log(`Please enter Rock, Paper or Scissors.`); //case can be removed
-            break;
-
-        default:
-            console.log(`${playerSelection} is not a valid input. Please select Rock, Paper, or Scissors!`); // case can be removed
-            break;
     }
+    document.getElementById("roundoutcome").innerHTML = roundOutcome;
     return roundOutcome;
 }
 
@@ -103,9 +96,11 @@ function checkWinner() {
 function countScore() {
     if (roundOutcome === "Win") {
         playerScore++;
+        console.log(`Player: ${playerScore}, computer: ${computerScore}`);
         document.getElementById("displayscorep").innerHTML = playerScore;
     } else if (roundOutcome === "Loss") {
         computerScore++;
+        console.log(`Player: ${playerScore}, computer: ${computerScore}`);
         document.getElementById("displayscorec").innerHTML = computerScore;
     } else {
         drawCounter++;
@@ -131,6 +126,10 @@ function game() {
 
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
+            // reset score and game status at round start
+            document.getElementById("displayscorep").innerHTML = playerScore;
+            document.getElementById("displayscorec").innerHTML = computerScore;
+            document.getElementById("gamestatus").innerHTML = gameStatus;
 
             console.log(button.id); // log player's choice
             let playerSelection = button.id;
