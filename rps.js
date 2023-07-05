@@ -1,24 +1,18 @@
 // Generates the computer's choice based on a random number
 function getComputerChoice() {
-    let computerChoice = Math.floor(Math.random() * 3);
+    computerChoice = Math.floor(Math.random() * 3);
 
     switch (computerChoice) {
         case 0:
             computerChoice = "Rock";
-            //display the computer's choice
-            document.getElementById("displaychoice").innerHTML = computerChoice;
             console.log(`The computer's choice is ${computerChoice}.`); //print
             break;
         case 1:
             computerChoice = "Paper";
-            //display the computer's choice
-            document.getElementById("displaychoice").innerHTML = computerChoice;
             console.log(`The computer's choice is ${computerChoice}.`); //print
             break;
         case 2:
             computerChoice = "Scissors";
-            //display the computer's choice
-            document.getElementById("displaychoice").innerHTML = computerChoice;
             console.log(`The computer's choice is ${computerChoice}.`); //print
             break;
     }
@@ -103,6 +97,10 @@ function printScore() {
     document.getElementById("displayscorec").innerHTML = computerScore;
 }
 
+function printComputerChoice() {
+    document.getElementById("displaychoice").innerHTML = computerChoice;
+}
+
 // reset variables to start a new game
 function endGame() {
     roundNumber = 1;
@@ -130,7 +128,7 @@ function game() {
             console.log(button.id); // log player's choice
             let playerSelection = button.id;
             let computerSelection = getComputerChoice();
-
+            printComputerChoice();
             playRound(playerSelection, computerSelection);
             countScore();
             printScore();
@@ -154,5 +152,11 @@ let validSelection = false;
 let gameOver = false;
 const buttons = document.querySelectorAll('button');
 let gameStatus = "";
+let computerChoice = 0;
 
 game();
+
+// to do: 
+// implement round number counter
+// clean up and simplify
+// create a nice UI
