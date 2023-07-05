@@ -89,15 +89,18 @@ function checkWinner() {
 function countScore() {
     if (roundOutcome === "Win") {
         playerScore++;
-        console.log(`Player: ${playerScore}, computer: ${computerScore}`);
-        document.getElementById("displayscorep").innerHTML = playerScore;
+        //console.log(`Player: ${playerScore}, computer: ${computerScore}`);
     } else if (roundOutcome === "Loss") {
         computerScore++;
-        console.log(`Player: ${playerScore}, computer: ${computerScore}`);
-        document.getElementById("displayscorec").innerHTML = computerScore;
+        //console.log(`Player: ${playerScore}, computer: ${computerScore}`);
     } else {
         drawCounter++;
     }
+}
+
+function printScore() {
+    document.getElementById("displayscorep").innerHTML = playerScore;
+    document.getElementById("displayscorec").innerHTML = computerScore;
 }
 
 // reset variables to start a new game
@@ -130,6 +133,7 @@ function game() {
 
             playRound(playerSelection, computerSelection);
             countScore();
+            printScore();
             checkWinner();
             if(gameOver){
                 console.log('The game is over');
