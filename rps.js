@@ -5,15 +5,12 @@ function getComputerChoice() {
     switch (computerChoice) {
         case 0:
             computerChoice = "Rock";
-            console.log(`The computer's choice is ${computerChoice}.`); //print
             break;
         case 1:
             computerChoice = "Paper";
-            console.log(`The computer's choice is ${computerChoice}.`); //print
             break;
         case 2:
             computerChoice = "Scissors";
-            console.log(`The computer's choice is ${computerChoice}.`); //print
             break;
     }
     return computerChoice;
@@ -28,39 +25,30 @@ function playRound(playerSelection, computerSelection) {
         case "Rock":
             if (computerSelection === "Rock") {
                 roundOutcome = "Draw";
-                //console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             } else if (computerSelection === "Paper") {
                 roundOutcome = "Loss";
-                //console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
             } else {
                 roundOutcome = "Win";
-                //console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
             }
             break;
 
         case "Paper":
             if (computerSelection === "Rock") {
                 roundOutcome = "Win";
-                //console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
             } else if (computerSelection === "Paper") {
                 roundOutcome = "Draw";
-                //console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             } else {
                 roundOutcome = "Loss";
-                //console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
             }
             break;
 
         case "Scissors":
             if (computerSelection === "Rock") {
                 roundOutcome = "Loss"
-                //console.log(`You Lose! ${computerSelection} beats ${playerSelection}.`); //print
             } else if (computerSelection === "Paper") {
                 roundOutcome = "Win";
-                //console.log(`You Win! ${playerSelection} beats ${computerSelection}.`); //print
             } else {
                 roundOutcome = "Draw";
-                //console.log(`It's a draw! You have both selected ${computerSelection}.`); //print
             }
             break;
     }
@@ -77,16 +65,14 @@ function printStatus() {
 
 // check if the player or computer reached the designated score
 function checkWinner() {
-    if (playerScore >= 2 || computerScore >= 2) {gameOver = true};
+    if (playerScore >= 3 || computerScore >= 3) { gameOver = true };
 }
 
 function countScore() {
     if (roundOutcome === "Win") {
         playerScore++;
-        //console.log(`Player: ${playerScore}, computer: ${computerScore}`);
     } else if (roundOutcome === "Loss") {
         computerScore++;
-        //console.log(`Player: ${playerScore}, computer: ${computerScore}`);
     } else {
         drawCounter++;
     }
@@ -128,8 +114,8 @@ function game() {
             document.getElementById("displayscorep").innerHTML = playerScore;
             document.getElementById("displayscorec").innerHTML = computerScore;
             document.getElementById("gamestatus").innerHTML = gameStatus;
+
             printRoundNumber();
-            console.log(button.id); // log player's choice
             let playerSelection = button.id;
             let computerSelection = getComputerChoice();
             printComputerChoice();
@@ -138,12 +124,10 @@ function game() {
             printScore();
             checkWinner();
             roundNumber++;
-            if(gameOver){
-                console.log('The game is over');
+            if (gameOver) {
                 printStatus();
                 endGame();
             };
-
         });
     });
 }
@@ -162,6 +146,5 @@ let computerChoice = 0;
 game();
 
 // to do: 
-// implement round number counter
 // clean up and simplify
 // create a nice UI
