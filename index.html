@@ -11,7 +11,6 @@
 
 <body>
     <div id="btn">
-        
         <div class="container">
             <button id="rock">
                 <img src="./images/rock.png" alt="Rock">
@@ -20,7 +19,6 @@
                 </div>
             </button>
         </div>  
-
         <div class="container">
             <button id="paper">
                 <img src="./images/paper.png" alt="Paper">
@@ -29,7 +27,6 @@
                 </div>
             </button>
         </div>
-
         <div class="container">
             <button id="scissors">
                 <img src="./images/scissors.png" alt="Scissors">
@@ -38,31 +35,41 @@
                 </div>
             </button>
         </div>
+    </div>
 
-    </div>
-    <div id="computer-choice">
-        <p>The computer has chosen: </p>
-        <p id="displaychoice"></p>
-    </div>
-    <div id="results">
-        <div id="rounds">
-            <p>Round number: </p>
-            <p id="displayrounds"></p>
+    <div class="output">
+        <div class="outputtop">
+            <div id="computer-choice">
+                <p>The computer has chosen: </p>
+                <p id="displaychoice"> </p>
+            </div>
+            <div id="rounds">
+                <p>Round number: </p>
+                <p id="displayrounds"></p>
+            </div>
         </div>
-        <div>
-            <p>The round's outcome is: </p>
-            <p id="roundoutcome"></p>
+        
+        <div class="outputbottom">
+      
+            <div id="results">
+                <p>The round's outcome is: </p>
+                <p id="roundoutcome"></p>
+            </div>
+    
+            <div id="playerscore">
+                <p>Your score: </p>
+                <p id="displayscorep"></p>
+            </div>
+    
+            <div id="computerscore">
+                <p>The computer's score: </p>
+                <p id="displayscorec"></p>
+            </div>
+    
+            <div id="winner"></div>
+            <div id="gamestatus"></div>
+           
         </div>
-        <div id="playerscore">
-            <p>Your score: </p>
-            <p id="displayscorep"></p>
-        </div>
-        <div id="computerscore">
-            <p>The computer's score: </p>
-            <p id="displayscorec"></p>
-        </div>
-        <div id="winner"></div>
-        <div id="gamestatus"></div>
     </div>
 
 </body>
