@@ -5,7 +5,7 @@ body {
 
 #btn {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     gap: 50px;
     flex-wrap: wrap;
     margin-top: 250px;
@@ -16,16 +16,16 @@ body {
     border: 0px;
 }
 
-image {
+img {
     display: block;
-    width: 100%;
+    width: 250px;
     height: auto;
+    margin: 25px;
 }
-
-
 
 .overlay {
     position: absolute;
+    border-radius: 100%;
     top: 0;
     bottom: 0;
     left: 0;
@@ -34,11 +34,12 @@ image {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #008CBA;
+    background-color: #55aaff;
   }
 
 .container {
     position: relative;
+
 }
 
 .container:hover .overlay {
@@ -48,7 +49,8 @@ image {
 
 .text {
     color: white;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bold;
     position: absolute;
     top: 50%;
     left: 50%;
