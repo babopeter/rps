@@ -155,6 +155,3 @@ let winMessage = "";
 let lossMessage = "";
 
 game();
-
-// to do:
-// create a nice UI
