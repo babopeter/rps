@@ -58,9 +58,15 @@ function playRound(playerSelection, computerSelection) {
 
 // print the final score and win/loss message
 function printStatus() {
-    gameStatus = "Game over! Click a button to start a new game!";
+    if (playerScore === 3) {
+        winMessage = "Congratulations, you are the winner!";
+        document.getElementById("winner").innerHTML = winMessage;
+    } else {
+        lossMessage = "You lost this game, but don't give up!";
+        document.getElementById("winner").innerHTML = lossMessage;
+    }
+    gameStatus = "Choose rock, paper or scissors to start a new game.";
     document.getElementById("gamestatus").innerHTML = gameStatus;
-
 }
 
 // check if the player or computer reached the designated score
@@ -104,6 +110,8 @@ function endGame() {
     playerScore = "";
     computerScore = "";
     roundOutcome = "";
+    winMessage = "";
+    lossMessage = "";
 }
 
 function game() {
@@ -113,6 +121,7 @@ function game() {
             // reset score and game status at round start
             document.getElementById("displayscorep").innerHTML = playerScore;
             document.getElementById("displayscorec").innerHTML = computerScore;
+            document.getElementById("winner").innerHTML = winMessage;
             document.getElementById("gamestatus").innerHTML = gameStatus;
 
             printRoundNumber();
@@ -142,9 +151,10 @@ let gameOver = false;
 const buttons = document.querySelectorAll('button');
 let gameStatus = "";
 let computerChoice = 0;
+let winMessage = "";
+let lossMessage = "";
 
 game();
 
-// to do: 
-// clean up and simplify
+// to do:
 // create a nice UI
