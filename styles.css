@@ -1,5 +1,5 @@
 body {
-    background-color: #202124;
+    background-color: #537188;
     color: white;
 }
 
@@ -8,7 +8,7 @@ body {
     justify-content: center;
     gap: 50px;
     flex-wrap: wrap;
-    margin-top: 250px;
+    margin-top: 150px;
 }
 
 #btn button {
@@ -25,7 +25,7 @@ img {
 
 .overlay {
     position: absolute;
-    border-radius: 100%;
+    border-radius: 30%;
     top: 0;
     bottom: 0;
     left: 0;
@@ -34,7 +34,7 @@ img {
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #55aaff;
+    background-color: #E1D4BB;
   }
 
 .container {
@@ -43,7 +43,7 @@ img {
 }
 
 .container:hover .overlay {
-    opacity: 0.8;
+    opacity: 0.95;
 }
 
 
@@ -56,4 +56,37 @@ img {
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+}
+
+.output {
+    background-color: #CBB279;
+    font-size: 25px;
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-right: 300px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outputtop {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin: 25px;
+}
+
+.outputbottom {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 25px;
 }
